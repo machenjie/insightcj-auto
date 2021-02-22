@@ -138,7 +138,7 @@ func ParseFirstUselessTopic(html string) (url, title string) {
 	doc.Find(".topic_title").Each(func(i int, s *goquery.Selection) {
 		tmpUrl, _ := s.Attr("href")
 		tmpTitle, _ := s.Attr("title")
-		if url == "" && tmpUrl != "" && strings.HasPrefix(tmpTitle, "灌水专用贴") {
+		if url == "" && tmpUrl != "" && (strings.HasPrefix(tmpTitle, "永久灌水刷分贴") || strings.HasPrefix(tmpTitle, "灌水专用贴")) {
 			url = tmpUrl
 			title = tmpTitle
 		}
